@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PONG GAME !</title>
+</head>
+<body>
+    <h1>PONG game made by Srinath!</h1>
+
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+<script>
+    // Exceptional Javascript script will be in the html document
+    window.onload = function(){
+        console.log("It works")
+        canvas = document.getElementById('gameCanvas');
+        canvasContext = canvas.getContext('2d');
+        canvasContext.fillStyle = 'black';
+        canvasContext.fillRect(0,0, canvas.width, canvas.height);
+    }
+</script>
+</body>
+</html>
