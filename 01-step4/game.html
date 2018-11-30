@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <h1>PONG game made by Srinath!</h1>
+    <h1>PONG</h1>
+    <h3>game made by Srinath!</h3>
 
     <canvas id="gameCanvas" width="800" height="600"></canvas>
 
@@ -17,6 +18,7 @@
         var canvas;
         var canvasContext;
         var ballX = 50;
+        var ballSpeedX = 5;
         var fps;
 
         window.onload = function () {
@@ -28,23 +30,27 @@
                 drawEverything();
                 moveEverything();
             }, 1000 / fps);
-        }
+        };
 
         function moveEverything() {
-            if (ballX < 750) {
-                ballX = ballX + 10;
-            } else if (ballX = 750) {
-                ballX = 750;
+            ballX = ballX + ballSpeedX;
+            if (ballX > canvas.width - 10) {
+                ballSpeedX = -ballSpeedX;
             };
-        }
+            if (ballX < 0) {
+                ballSpeedX = -ballSpeedX;
+            }
+        };
 
         function drawEverything() {
-            canvasContext.fillStyle = 'black';
-            canvasContext.fillRect(0, 0, canvas.width, canvas.height);
-            canvasContext.fillStyle = 'white';
-            canvasContext.fillRect(0, 210, 10, 100);
-            canvasContext.fillStyle = 'red';
-            canvasContext.fillRect(ballX, 20, 10, 10);
+            colorRect(0, 0, canvas.width, canvas.height, 'black');
+            colorRect(0, 210, 10, 100, 'white');
+            colorRect(ballX, 20, 10, 10, 'red');
+        };
+
+        function colorRect(leftX, topY, width, heigth, drawColor) {
+            canvasContext.fillStyle = drawColor;
+            canvasContext.fillRect(leftX, topY, width, heigth);
         }
     </script>
 </body>
