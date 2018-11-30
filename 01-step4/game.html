@@ -1,3 +1,52 @@
-<html>
-Srinath is here! <b>This text is thick</b> and <i>this text is slanted</i> and this text is normal.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PONG GAME !</title>
+</head>
+
+<body>
+    <h1>PONG game made by Srinath!</h1>
+
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <script>
+        var canvas;
+        var canvasContext;
+        var ballX = 50;
+        var fps;
+
+        window.onload = function () {
+            console.log("It works");
+            canvas = document.getElementById('gameCanvas');
+            canvasContext = canvas.getContext('2d');
+            var fps = 30;
+            setInterval(function () {
+                drawEverything();
+                moveEverything();
+            }, 1000 / fps);
+        }
+
+        function moveEverything() {
+            if (ballX < 750) {
+                ballX = ballX + 10;
+            } else if (ballX = 750) {
+                ballX = 750;
+            };
+        }
+
+        function drawEverything() {
+            canvasContext.fillStyle = 'black';
+            canvasContext.fillRect(0, 0, canvas.width, canvas.height);
+            canvasContext.fillStyle = 'white';
+            canvasContext.fillRect(0, 210, 10, 100);
+            canvasContext.fillStyle = 'red';
+            canvasContext.fillRect(ballX, 20, 10, 10);
+        }
+    </script>
+</body>
+
 </html>
